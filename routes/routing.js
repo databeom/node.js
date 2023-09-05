@@ -24,4 +24,15 @@ router.post('/login',(req , res)=>{
     return res.send('입력완료!')
 })
 
+router.post('/register',(req , res)=>{
+    console.log(req.body.name)
+    username = req.body.name
+    email = req.body.email
+    phone = req.body.phone
+    password = req.body.password
+
+    const user = User()
+})
+
+
 module.exports = router 
