@@ -31,7 +31,18 @@ router.post('/register',(req , res)=>{
     phone = req.body.phone
     password = req.body.password
 
-    const user = User()
+    const user = new User({
+        username : username,
+        email : email,
+        phone : phone,
+        password : password,
+
+    })
+    // Document instance method
+    user.save()
+    .then((result) => console.log(`Saved successfully result : ${result}`))
+    .catch(e => console.error(e));
+    return res.redirect('/')
 })
 
 

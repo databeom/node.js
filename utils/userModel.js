@@ -11,4 +11,6 @@ const userSchema = new mongoose.Schema({
   });
   
   // Create Model & Export
-  module.exports = mongoose.model('Todo', todoSchema);
+  module.exports = mongoose.model('User', userSchema);
+
+  

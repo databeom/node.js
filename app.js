@@ -1,12 +1,19 @@
 const express = require("express") //express를 import
+const mongoose = require("mongoose")
 const path = require('path')
 const apiRouter = require('./routes/routing')
 const app = express()   //새로운 인스턴스 실행?
+
+// Connect to MongoDB
+mongoose.connect("mongodb+srv://root:1234@cluster0.yrij7xu.mongodb.net/?retryWrites=true&w=majority", { useNewUrlParser: true })
+  .then(() => console.log('Successfully connected to mongodb'))
+  .catch(e => console.error(e));
 
 // console.log(path.resolve(__dirname+ '/views'))
 // set : 초기설정 메서드
 app.set('views', path.resolve(__dirname+ '/views'))
 app.set('view engine', 'ejs')
+
 
 // use : 미들웨어를 등록하는 메서드 
 app.use(express.urlencoded({extended:false}))
